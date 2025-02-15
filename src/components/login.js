@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState("");
@@ -13,10 +13,9 @@ const Login = ({ setIsAuthenticated }) => {
             const res = await axios.post("http://localhost:5000/api/users/login", { email, password });
             localStorage.setItem("token", res.data.token);
             setIsAuthenticated(true);
-            //alert("Login successful!");
             navigate("/dashboard"); // Redirect to Dashboard
         } catch (err) {
-            alert("Login failed. " + err.response.data.message);
+            alert("Login failed. " + (err.response?.data?.message || "Please try again."));
         }
     };
 
@@ -28,6 +27,11 @@ const Login = ({ setIsAuthenticated }) => {
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Login</button>
             </form>
+
+            {/* Register Link */}
+            <p className="auth-switch">
+                Don't have an account? <Link to="/register">Register</Link>
+            </p>
         </div>
     );
 };
