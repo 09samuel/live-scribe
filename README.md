@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+#  Live-Scribe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### AI-Powered Real-Time Transcription & Summarization Desktop App
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Live-Scribe is a powerful desktop application that performs real-time speech-to-text transcription using OpenAI's Whisper model, automatically generates AI-powered summaries with Long-T5, and provides a seamless user experience through an Electron-based interface.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  Features
 
-### `npm run build`
+-  **Real-time audio transcription** - Capture from stereo mix or microphone input
+- **Live UI updates** - See transcriptions appear instantly as you speak
+- **AI-powered summarization** - Automatic summary generation using Long-T5 model
+-  **MongoDB integration** - Persistent storage for all transcriptions and summaries
+-  **JWT authentication** - Secure user authentication via Node.js API
+-  **Cross-platform desktop app** - Built with Electron for Windows, macOS, and Linux
+-  **Modern React UI** - Responsive and intuitive user interface
+- **Python** - Flask backend for ML model inference
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation Guide
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Python 3.8 or higher
+- Node.js 14 or higher
+- MongoDB 4.4 or higher
+- npm or yarn package manager
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Clone the Repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/09samuel/live-scribe.git
+cd live-scribe
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Python Backend Setup (Flask + Whisper + Long-T5)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create and activate a virtual environment:
 
-## Learn More
+```bash
+python -m venv venv
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Windows
+venv\Scripts\activate
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# macOS/Linux
+source venv/bin/activate
+```
 
-### Code Splitting
+Install Python dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+pip install -r requirements.txt
+```
 
-### Analyzing the Bundle Size
+### Node.js Authentication API Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Navigate to the server directory and install dependencies:
 
-### Making a Progressive Web App
+```bash
+cd server
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### React + Electron Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Return to the project root and install dependencies:
 
-### Deployment
+```bash
+cd ..
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Running the System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Start all services in separate terminal windows:
+
+**Terminal 1 - Python Backend:**
+```bash
+cd server
+python server.py
+```
+
+**Terminal 2 - Node.js Authentication API:**
+```bash
+cd server
+node server.js
+```
+
+**Terminal 3 - Electron Desktop App:**
+```bash
+yarn electron:serve
+```
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Frontend | React, Electron |
+| Backend API | Node.js, Express |
+| ML Backend | Python, Flask |
+| Transcription | OpenAI Whisper |
+| Summarization | Long-T5 |
+| Database | MongoDB |
+
+
+##  Acknowledgments
+
+- OpenAI Whisper for speech recognition
+- Google Long-T5 for text summarization
+- The Electron and React communities
