@@ -45,6 +45,8 @@ cd live-scribe
 Create and activate a virtual environment:
 
 ```bash
+cd server
+
 python -m venv venv
 
 # Windows
