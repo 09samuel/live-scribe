@@ -11,6 +11,10 @@ Live-Scribe is a powerful desktop application that performs real-time speech-to-
 
 ---
 
+## Demo Video
+
+ **Watch the demo:** https://drive.google.com/file/d/1T6mwD9k7a0aI6vBk7nnkWj1r6lCPqXel/view?usp=sharing
+
 ##  Features
 
 -  **Real-time audio transcription** - Capture from stereo mix or microphone input
